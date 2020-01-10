@@ -1,0 +1,8 @@
+bool isRequest
+---
+bool success
+float32[] frame_depth
+std_msgs/Header header
+geometry_msgs/Point32[] frame_points
+sensor_msgs/Image frame_intensity
+sensor_msgs/PointCloud2 frame_pointcloud
