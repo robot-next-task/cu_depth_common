@@ -44,11 +44,11 @@
 #define DEFAULT_CENTER2SENSOR_CM		(DEFAULT_CENTER2SENSOR_M * 100)
 #define DEFAULT_CENTER2SENSOR_MM		(DEFAULT_CENTER2SENSOR_M * 1000)
 
-#define DEFAULT_SENSOR_DEADZONE_M		(0.05f)
+#define DEFAULT_SENSOR_DEADZONE_M		(0.12f)//(0.05f)
 #define DEFAULT_SENSOR_DEADZONE_CM		(DEFAULT_SENSOR_DEADZONE_M * 100)
 #define DEFAULT_SENSOR_DEADZONE_MM		(DEFAULT_SENSOR_DEADZONE_M * 1000)
 
-#define DEFAULT_NAVI_PASS_MARGIN_M		(0.01f)
+#define DEFAULT_NAVI_PASS_MARGIN_M		(0.03f)
 #define DEFAULT_NAVI_PASS_MARGIN_CM		(DEFAULT_NAVI_PASS_MARGIN_M * 100)
 #define DEFAULT_NAVI_PASS_MARGIN_MM		(DEFAULT_NAVI_PASS_MARGIN_M * 1000)
 
@@ -145,7 +145,8 @@ typedef struct
     BatteryValueReadData_t stBatteryData; //8bytes
     int16_t nLeftWheelSpeed; // 2bytes
     int16_t nRightWheelSpeed; // 2bytes
-	// IRValueReadData_t stIRData;
+	int32_t reserved;
+ 	//IRValueReadData_t stIRData;
 }ST_MsgRxData;
 
 typedef struct
