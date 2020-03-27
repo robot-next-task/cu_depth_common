@@ -44,11 +44,11 @@
 #define DEFAULT_CENTER2SENSOR_CM		(DEFAULT_CENTER2SENSOR_M * 100)
 #define DEFAULT_CENTER2SENSOR_MM		(DEFAULT_CENTER2SENSOR_M * 1000)
 
-#define DEFAULT_SENSOR_DEADZONE_M		(0.05f)
+#define DEFAULT_SENSOR_DEADZONE_M		(0.12f)//(0.05f)
 #define DEFAULT_SENSOR_DEADZONE_CM		(DEFAULT_SENSOR_DEADZONE_M * 100)
 #define DEFAULT_SENSOR_DEADZONE_MM		(DEFAULT_SENSOR_DEADZONE_M * 1000)
 
-#define DEFAULT_NAVI_PASS_MARGIN_M		(0.01f)
+#define DEFAULT_NAVI_PASS_MARGIN_M		(0.03f)
 #define DEFAULT_NAVI_PASS_MARGIN_CM		(DEFAULT_NAVI_PASS_MARGIN_M * 100)
 #define DEFAULT_NAVI_PASS_MARGIN_MM		(DEFAULT_NAVI_PASS_MARGIN_M * 1000)
 
@@ -96,6 +96,8 @@ typedef struct
 	int32_t nVst;
 	int32_t nVturn;
 	int32_t unDrReset;
+	int32_t nAgitatorSpeed;
+	int32_t nSuctionSpeed;
 } ST_MsgTxData;
 
 typedef struct
@@ -135,17 +137,66 @@ typedef struct
 
 typedef struct
 {
-    XYThetaInt32_t stDRData;     // 12 bytes
+	int32_t softbumper;
+} SoftBumperStatusReadData_t;
+
+typedef struct
+{
+	int16_t nSide_L;
+	int16_t nSide_R;
+	int16_t nFront_L;
+	int16_t nFront_CL;
+	int16_t nFront_CR;
+	int16_t nFront_R;
+}TofDistanceValueReadData_t;
+
+typedef struct
+{
+	int16_t nCliff_R;
+	int16_t nCliff_L;
+	int16_t nCliff_C;
+	int16_t nReserved;
+}CliffValueReadData_t;
+
+typedef struct
+{
+	uint16_t req_data;
+	uint8_t key;
+	uint8_t remocon1;
+	uint8_t remocon2;
+	uint8_t remocon3;
+	uint8_t remocon4;
+	uint8_t docking1;
+	uint8_t docking2;
+	uint8_t docking3;
+	uint8_t docking4;
+	int8_t 	nDustBinTheta;
+}UIValueReadData_t;
+
+typedef struct
+{
+    XYThetaInt32_t stDRData;     	// 12 bytes
+	XYThetaInt32_t stWheelData;     // 12 bytes
+	BatteryValueReadData_t stBatteryData; //8bytes
+	TofDistanceValueReadData_t stToFData; //12bytes
+	CliffValueReadData_t stCliffData; 	//8bytes
+	GyroValueReadData_t stGyroData; // 20bytes
+	GyroValueReadData_t stGyroData2; // 20bytes
+	OFSValueReadData_t stOfsData;   //24bytes
+	int16_t nLeftWheelSpeed; // 2bytes
+    int16_t nRightWheelSpeed; // 2bytes
+	UIValueReadData_t stUIReadData; //12 byte
+
+	/*
     int16_t nCliff_Right;        // 2bytes
     int16_t nCliff_Left;         // 2bytes
+	int16_t nCliff_Center;         // 2bytes
 	int16_t nIR_Dist_Right;		 // 2bytes
 	int16_t nIR_Dist_Left; 		 // 2bytes
     GyroValueReadData_t stGyroData; // 20bytes
     OFSValueReadData_t stOfsData;   //24bytes
-    BatteryValueReadData_t stBatteryData; //8bytes
-    int16_t nLeftWheelSpeed; // 2bytes
-    int16_t nRightWheelSpeed; // 2bytes
-	// IRValueReadData_t stIRData;
+	SoftBumperStatusReadData_t stSoftBumper;	// 4Bytes
+	*/
 }ST_MsgRxData;
 
 typedef struct
