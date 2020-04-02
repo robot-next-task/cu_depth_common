@@ -1,3 +1,6 @@
+#ifndef __TIME_PERF_H__
+#define __TIME_PERF_H__
+
 #include <iostream>
 #include <string>
 #include <chrono>
@@ -33,3 +36,6 @@ public:
         Toc();
     }
 };
+
+
+#endif
