@@ -58,6 +58,20 @@
 #define DEFAULT_NAVI_PASS_MARGIN_CM		(DEFAULT_NAVI_PASS_MARGIN_M * 100)
 #define DEFAULT_NAVI_PASS_MARGIN_MM		(DEFAULT_NAVI_PASS_MARGIN_M * 1000)
 
+#ifndef PI_F
+#define PI_F            (3.14159265359f)
+#endif
+
+#ifndef _DEG2RAD
+#define _DEG2RAD(r)      (r)*PI_F/180.f
+#endif
+
+#ifndef _RAD2DEG
+#define _RAD2DEG(r)      (r)*180.f/PI_F
+#endif
+
+#define _TILT_DEG	(-10)
+
 
 
 struct RgbdFrame
