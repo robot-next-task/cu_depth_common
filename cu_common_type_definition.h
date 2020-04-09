@@ -70,7 +70,7 @@
 #define _RAD2DEG(r)      (r)*180.f/PI_F
 #endif
 
-#define _TILT_DEG	(-10)
+#define _TILT_DEG	(-10)		//(-15)
 
 
 
