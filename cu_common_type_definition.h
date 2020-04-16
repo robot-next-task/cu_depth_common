@@ -38,7 +38,7 @@
 #define DEFAULT_RGBSENSOR_CHANNEL		(3)		// R + G + B
 #define DEFAULT_RGBSENSOR_READ_DURATION	(10)	// ms
 
-#define DEFAULT_MAX_DIST_RANGE			(0.50f)//8f)//1.5f)	// m
+#define DEFAULT_MAX_DIST_RANGE			(1.50f)//8f)//1.5f)	// m
 #define DEFAULT_MIN_DIST_RANGE			(0.05f)	// m
 
 #define DEFAULT_MAX_HEIGHT_RANGE_M		(0.13f)
